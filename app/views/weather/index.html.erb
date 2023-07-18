@@ -1,0 +1,19 @@
+<div style="display: flex; justify-content: center; height: 100vh;">
+  <div>
+    <h1>Weather Information</h1>
+    <form action="/weather" method="get">
+      <label for="location">Enter a location:</label>
+      <input type="text" id="location" name="location" required>
+      <br>
+      <input type="submit" value="Get Weather">
+    </form>
+    <br>
+    <% if @weather_data.present? %>
+      <label>Temperature: <%= @weather_data[:temperature] %>°C</label>
+      <br>
+      <label>Conditions: <%= @weather_data[:conditions] %></label>
+      <br>
+      <%= link_to 'Refresh', weather_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
